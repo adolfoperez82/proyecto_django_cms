@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Django CMS</title>
+    <link href=".{{ STATIC_URL }}css/reset.css" rel="stylesheet" type="text/css">
+    <link href=".{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css">
+    <script src=".{{ STATIC_URL }}js/jquery.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+            $(".menu").hover(function(){
+                    $(this).children(".submenu").show();
+                },function(){
+                    $(this).children(".submenu").hide();
+                }
+            )
+        });
+
+    </script>
+</head>
+
+<body>
+
+<div id="body">
+    <div id="cabecera">
+        <div id="contenedor_opciones" class="contenedor horizontal">
+            <ul>
+                <li>
+                    <a href="./home">Inicio</a>
+                </li>
+                 {% if not user.is_authenticated %}
+                <li>
+                    <a href="./login">Login</a>
+                </li>
+                <li>
+                    <a href="./registro">Registrarse</a>
+                </li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="./logout">Logout</a>
+                </li>
+                <li>
+                    <a href="./modoEdicion">Modo edicion</a>
+                </li>
+                <li>
+                    <a href="./creaOpcion">Crea Opcion</a>
+                </li>
+                <li>
+                    <a href="./widgets">Widgets</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+            <div id="contenedor_0" class="contenedor horizontal">
+                {% block posicion_0 %}
+
+                {% endblock %}
+            </div>
+            <div id="contenedor_1" class="contenedor horizontal">
+                {% block posicion_1 %}
+
+                {% endblock %}
+            </div>
+    </div>
+    <div class="clear"></div>
+    <div id="cuerpo">
+        {% if edicion != 1 %}
+            <div id="contenedor_2" class="contenedor vertical">
+                {% block posicion_2 %}
+
+                {% endblock %}
+            </div>
+        {% endif %}
+             {% if edicion != 1 %}
+                <div id="centro" class="cuerpo">
+                {% endif %}
+                {% if edicion == 1 %}
+                <div id="centro_maximo">
+                {% endif %}
+               {% if edicion != 1 %}
+                    <div id="contenedor_4" class="contenedor horizontal">
+                        {% block posicion_4 %}
+
+                        {% endblock %}
+                    </div>
+                {% endif %}
+                <div id="contenido">
+                    {% if edicion == 1 %}
+                        <div class="ediciones">
+                    {% endif %}
+                            {% block contenido %}
+
+                            {% endblock %}
+                    {% if edicion == 1 %}
+                        </div>
+                    {% endif %}
+                </div>
+                {% if edicion != 1 %}
+                    <div id="contenedor_5" class="contenedor horizontal">
+                        {% block posicion_5 %}
+
+                        {% endblock %}
+                    </div>
+                {% endif %}
+            </div>
+            {% if edicion != 1 %}
+                <div id="contenedor_3" class="contenedor vertical">
+                    {% block posicion_3 %}
+
+                    {% endblock %}
+                </div>
+            {% endif %}
+    </div>
+    <div class="clear"></div>
+    <div id="contenedor_6" class="contenedor horizontal">
+        {% block posicion_6 %}
+
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>

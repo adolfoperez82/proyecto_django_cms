@@ -1,0 +1,96 @@
+.form-inicio {
+    margin-top: 0px;
+
+}
+
+.form-signin H2,H4{
+    color: darkblue;
+}
+.form-admin {
+    margin-top: 100px;
+}
+
+legend {
+    color: #878787;
+}
+
+select {
+    color: #878787;
+}
+
+#form-select-tema {
+    margin-top: 50px;
+}
+
+#id_temas {
+    width: 35em;
+}
+
+.alert-none {
+    display: none;
+}
+
+.errorlist {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+}
+
+.errorlist li {
+    list-style: none;
+    color:#ff0000;
+}
+
+.center-form{
+
+
+
+}
+.title{
+    margin-bottom: 30px;
+    color: #000000;
+    border-bottom: 2px solid black;
+    padding-bottom: 20px;
+
+}
+.content{
+    width: 850px;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 100px;
+
+}
+.form{
+    margin: 0 auto;
+    display: block;
+    width:80%;
+    border: 1px solid black;
+    padding: 10px;
+    -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+    }
+.form input[type=text], textarea{
+    width: 98%;
+
+}
+
+.reply_header,.ticket_header{
+    margin-bottom: 5px;
+    border-bottom: 1px solid #000000;
+    font-weight: bold;
+}
+
+.reply_body,.ticket_body{
+    text-align: justify;
+}
+.ticket_data{
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+}
+.reply, .ticket{
+    padding: 10px;
+
+    margin-bottom: 20px;
+}

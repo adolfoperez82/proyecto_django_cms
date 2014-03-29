@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block contenido %}
+    <a href="./home">Volver</a>
+    {{msg}}
+        {% if form != 0%}
+            <form class="form" method="POST" url="{ url 'editaOpcion' }">
+                {% csrf_token %}
+                {% if borrar == True %}
+                    <input type="submit" class="btn" value="Borrar"/>
+                {% else %}
+                    <input type="submit" class="btn" value="Guardar"/>
+                {% endif %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+            </form>
+        {% endif %}
+{% endblock%}

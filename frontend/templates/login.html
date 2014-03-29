@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block contenido %}
+     <div class="form-inicio">
+        <form method="post" action="{% url 'login' %}" class="form-signin">
+            {% csrf_token %}
+
+                <div class="control-group">
+                    <!-- Username -->
+                    <label class="control-label" for="username">{{ form.username.label_tag }}</label>
+
+                    <div class="controls">
+                        <input id="id_username" class="input-block-level" type="text" name="username" maxlength="30">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- Password-->
+                    <label class="control-label" for="password">{{ form.password.label_tag }}</label>
+
+                    <div class="controls">
+                        <input type="password" class="input-block-level" name="password" id="id_password">
+                    </div>
+                </div>
+
+                {% if form.errors %}
+                    <p class="text-error">Your username and password didn't match. Please try again.</p>
+                {% endif %}
+
+                <div class="control-group">
+                    <!-- Button -->
+                    <div class="controls">
+                        <input type="submit" class="btn tn-large btn-primary" value="Login"/>
+                        <input type="hidden" name="next" value="{{ next }}"/>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+{% endblock %}
+{% block extra_javascript %}
+
+{%endblock%}
+

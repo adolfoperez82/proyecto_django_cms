@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Django CMS</title>
+    <link href=".{{ STATIC_URL }}css/reset.css" rel="stylesheet" type="text/css">
+    <link href=".{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css">
+    <link href=".{{ STATIC_URL }}css/base_widgets.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div id="body">
+    <div id="cabecera">
+        <div id="contenedor_opciones" class="">
+            <ul class="nav nav-tabs">
+                <li>
+                    <a href="./home">Inicio</a>
+                </li>
+                <li>
+                    <a href="./login">Login</a>
+                </li>
+                {% if not user.is_authenticated %}
+                <li>
+                    <a href="./registro">Registrarse</a>
+                </li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="./logout">Logout</a>
+                </li>
+                <li>
+                    <a href="./modoEdicion">Modo edicion</a>
+                </li>
+                <li>
+                    <a href="./creaOpcion">Crea Opcion</a>
+                </li>
+                <li>
+                    <a href="./widgets">Widgets</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <div id="cuerpo">
+            <div id="contenido">
+                {% block contenido %}
+
+                {% endblock %}
+            </div>
+            <div class="clear"/></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+   {% block posicion_0 %}
+        {% for pos in posiciones %}
+            {% if pos.posicion == 0 %}
+                {% for widget in pos.widgets %}
+                    {% autoescape off %}{{ widget.1 }}{% endautoescape %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+   {% endblock %}
+   {% block posicion_1 %}
+        {% for pos in posiciones %}
+            {% if pos.posicion == 1 %}
+                {% for widget in pos.widgets %}
+                    {% autoescape off %}{{ widget.1 }}{% endautoescape %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+   {% endblock %}
+   {% block posicion_2 %}
+        {% for pos in posiciones %}
+            {% if pos.posicion == 2 %}
+                {% for widget in pos.widgets %}
+                    {% autoescape off %}{{ widget.1 }}{% endautoescape %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+   {% endblock %}
+   {% block posicion_3 %}
+        {% for pos in posiciones %}
+            {% if pos.posicion == 3 %}
+                {% for widget in pos.widgets %}
+                    {% autoescape off %}{{ widget.1 }}{% endautoescape %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+   {% endblock %}
+   {% block posicion_4 %}
+        {% for pos in posiciones %}
+            {% if pos.posicion == 4 %}
+                {% for widget in pos.widgets %}
+                    {% autoescape off %}{{ widget.1 }}{% endautoescape %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+   {% endblock %}
+   {% block posicion_5 %}
+        {% for pos in posiciones %}
+            {% if pos.posicion == 5 %}
+                {% for widget in pos.widgets %}
+                    {% autoescape off %}{{ widget.1 }}{% endautoescape %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+   {% endblock %}
+   {% block posicion_6 %}
+        {% for pos in posiciones %}
+            {% if pos.posicion == 6 %}
+                {% for widget in pos.widgets %}
+                    {% autoescape off %}{{ widget.1 }}{% endautoescape %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+   {% endblock %}
+
+   {% block contenido %}
+        {{ contenido }}
+   {% endblock %}
+
+

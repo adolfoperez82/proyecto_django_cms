@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block menu_cabecera %}
+<ul class="nav nav-tabs">
+    {% for wid in widgets %}
+    {% if wid.0.posicion == 0 %}
+    {% for opc in wid.1 %}
+    <li class="{{opc.1}}">
+        <a href="./pagina={{ opc.0.amigable }}">{{ opc.0.titulo }}</a>
+        {% if editar = True %}
+        <a href="./editar={{opc.0.id}}">editar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block contenido %}
+    <a href="./home">Volver</a>
+    {{msg}}<ul class="nav nav-list">
+                <li class="">
+                    <form class="form" method="POST" action="{% url 'widgets' %}"/>
+                            {% csrf_token %}
+                            <table class="table">
+                                <tr>
+                                    <td>Nuevo:</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ nuevo.titulo }}</td>
+                                    <td>{{ nuevo.posicion }}</td>
+                                    <td class="visible_select">Visible:{{ nuevo.visible }}</td>
+                                    <td>
+                                        <input class="btn" type="submit" name="nuevo" value="Guardar"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                </li>
+        {% if lista_widgets != 0 %}
+
+                {% for wid in lista_widgets %}
+
+                    <li>
+                        <form class="form" method="POST" action="{% url 'widgets' %}"/>
+                            {% csrf_token %}
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <input type="hidden" name="id" id="id" value="{{ wid.id }}" />
+                                        {{ wid.formulario.titulo }}
+                                    </td>
+                                    <td>{{ wid.formulario.posicion }}</td>
+                                    <td class="visible_select">Visible:{{ wid.formulario.visible }}</td>
+                                    <td>
+                                        <input class="btn" type="Submit" name="borrar" value="Borrar"/>
+                                        <input class="btn" type="submit" name="guardar" value="Guardar"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+{% endblock%}
+
+{% block menu_pie %}
+<ul class="nav nav-tabs">
+    {% for wid in widgets %}
+    {% if wid.0.posicion == 1 %}
+    {% for opc in wid.1 %}
+    <li class="{{opc.1}}">
+        <a href="./pagina={{ opc.0.amigable }}">{{ opc.0.titulo }}</a>
+        {% if editar = True %}
+        <a href="./editar={{opc.0.id}}">editar</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}
+
+
+
+

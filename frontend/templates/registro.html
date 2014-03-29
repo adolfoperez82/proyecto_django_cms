@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<a href="./home">Volver</a>
+{{msg}}
+{% if form != 0%}
+<form class="form" method="POST" url="{ url 'editaOpcion }">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Guardar"/>
+</form>
+{% endif %}
+{% endblock %}
+
